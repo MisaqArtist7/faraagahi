@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/Dirooz.woff2') format('woff2');
+  font-weight: bold;    
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* پس‌زمینه اصلی سایت (مشکی/زغالی عمیق) */
   --bg-main: #121214;          
@@ -31,8 +39,9 @@
 body {
   background: var(--bg-main);
   color: var(--text-main);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'CustomFont', Arial, Helvetica, sans-serif;
 }
+
 .container {
   width: 100%;
   padding: 0 16px;
