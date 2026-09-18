@@ -26,7 +26,7 @@ export default function HeaderComponent() {
                 </Link>
             </li>
             <li>
-                <Link href="/register" className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-white hover:bg-white/10 transition-all font-semibold">
+                <Link href="/auth" className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-white hover:bg-white/10 transition-all font-semibold">
                 <span>ورود / ثبت‌نام</span>
                 </Link>
             </li>
