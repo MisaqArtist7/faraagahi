@@ -5,8 +5,6 @@ import { useState } from "react"
 import Link from "next/link"
 
 export default function HomePage() {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleMenu = () => setIsOpen(!isOpen)
 
   const courses = [
     { id: 1, title: "دوره فرا آگاهی", price: "۱,۹۱۴,۰۰۰", oldPrice: "۴,۲۰۰,۰۰۰", discount: "7%" },
@@ -55,99 +53,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] pb-24 relative">
 
-      {/* 🐧 منوی شناور راست (Linux Dock Style) */}
-      <aside className="fixed right-4 top-1/2 z-50 -translate-y-1/2 hidden sm:flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-[var(--bg-card)]/80 p-2 shadow-2xl backdrop-blur-xl">
-
-        <div className="h-1.5 w-1.5 rounded-full bg-white/20 mb-1"></div>
-
-        {socialLinks.map((item) => (
-          <Link
-            key={item.id}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group relative flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-slate-300 transition-all duration-300 hover:scale-110 hover:text-white hover:shadow-lg ${item.hoverBg} ${item.hoverShadow}`}
-          >
-            {item.icon}
-
-            {/* فونت تولتیپ بزرگ‌تر شد (text-sm) */}
-            <span className="pointer-events-none absolute right-14 whitespace-nowrap rounded-lg border border-white/10 bg-[var(--bg-card)] px-3.5 py-2 text-sm font-bold text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:opacity-100 group-hover:-translate-x-1">
-              {item.name}
-            </span>
-
-            <span className="absolute -left-1 h-1 w-1 rounded-full bg-white/0 transition-all group-hover:bg-white group-hover:h-3"></span>
-          </Link>
-        ))}
-
-        <div className="h-px w-6 bg-white/10 my-1"></div>
-
-        <button 
-          onClick={() => alert("ارتباط با پشتیبانی")}
-          className="group relative flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-slate-300 transition-all duration-300 hover:scale-110 hover:bg-[var(--primary-blue)] hover:text-white hover:shadow-lg hover:shadow-[var(--primary-blue)]/40"
-        >
-          <svg className="h-5 w-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-
-          <span className="pointer-events-none absolute right-14 whitespace-nowrap rounded-lg border border-white/10 bg-[var(--bg-card)] px-3.5 py-2 text-sm font-bold text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:opacity-100 group-hover:-translate-x-1">
-            پشتیبانی
-          </span>
-        </button>
-
-      </aside>
-
-      {/* هدر */}
-      <header className="sticky top-4 z-40 mx-auto w-full max-w-5xl px-4">
-        <nav className="flex items-center justify-between rounded-2xl border border-white/10 bg-[var(--bg-card)]/90 px-6 py-4 shadow-2xl backdrop-blur-md">
-
-          {/* لوگو بزرگ‌تر */}
-          <Link href="/" className="text-xl font-black tracking-widest text-white hover:opacity-80">
-            FARAAGAHI
-          </Link>
-
-          {/* منوی دسکتاپ با فونت بزرگ‌تر (text-base) */}
-          <ul className="hidden md:flex items-center gap-6 text-base font-medium text-[var(--text-muted)]">
-            <li>
-              <Link href="/" className="flex items-center gap-2 hover:text-white transition-colors">
-                <span>صفحه اصلی</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/faq" className="flex items-center gap-2 hover:text-white transition-colors">
-                <span>سوالات متداول</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/auth" className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-white hover:bg-white/10 transition-all font-semibold">
-                <span>ورود / ثبت‌نام</span>
-              </Link>
-            </li>
-          </ul>
-
-          <button onClick={toggleMenu} className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5">
-            <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-opacity ${isOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-          </button>
-        </nav>
-
-        {/* منوی موبایل بزرگ‌تر */}
-        {isOpen && (
-          <div className="md:hidden mt-2 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-2xl absolute w-[calc(100%-2rem)]">
-            <ul className="flex flex-col gap-3 text-base font-medium">
-              <li>
-                <Link href="/" onClick={() => setIsOpen(false)} className="block rounded-lg p-2.5 hover:bg-white/5">صفحه اصلی</Link>
-              </li>
-              <li>
-                <Link href="/faq" onClick={() => setIsOpen(false)} className="block rounded-lg p-2.5 hover:bg-white/5">سوالات متداول</Link>
-              </li>
-              <li>
-                <Link href="/auth" onClick={() => setIsOpen(false)} className="block rounded-lg bg-white/10 p-2.5 text-center font-bold">ورود / ثبت‌نام</Link>
-              </li>
-            </ul>
-          </div>
-        )}
-      </header>
 
       {/* محتوای اصلی */}
       <main className="container mx-auto mt-12 px-4">
@@ -200,28 +105,6 @@ export default function HomePage() {
           ))}
         </div>
       </main>
-
-      {/* فوتر با فونت‌های درشت‌تر و خواناتر */}
-      <footer className="mt-24 fixed bottom-0 left-0 right-0 border-t border-[var(--border-color)] bg-[var(--bg-card)]/40 py-6 text-base backdrop-blur-md">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
-
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <span className="text-lg font-black tracking-widest text-white">
-              FARAAGAHI
-            </span>
-            <p className="text-sm text-[var(--text-muted)]">
-              پلتفرم تخصصی دوره‌های خودشناسي و توسعه فردی.
-            </p>
-          </div>
-
-          <p className="text-sm font-semibold text-white/90">ارزش یک اسم نیست یک فرهنگ است.</p>
-
-          <p className="text-sm text-[var(--text-dark)]">
-            © {new Date().getFullYear()} تمامی حقوق محفوظ است.
-          </p>
-
-        </div>
-      </footer>
 
     </div>
   )
