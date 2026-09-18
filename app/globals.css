@@ -1,16 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --primaryColor: #151515f5;
-  --secoundaryColor: #111111;
-  --thirdColor: #343434;
+  /* پس‌زمینه اصلی سایت (مشکی/زغالی عمیق) */
+  --bg-main: #121214;          
+
+  /* کارت‌ها و بخش‌های شناور */
+  --bg-card: #1c1c21;           
+  --bg-subtle: #27272a;         
+
+  /* رنگ دکمه اصلی (آبی «خرید دوره») */
+  --primary-color: #2563eb;     
+  --primary-hover: #1d4ed8;     
+
+  /* رنگ اقدام ثانویه (سبز «مشخصات دوره») */
+  --secondary-color: #22c55e;   
+  --secondary-hover: #16a34a;   
+
+  /* رنگ بج‌های درصد تخفیف (قرمز) */
+  --badge-bg: #dc2626;          
+
+  /* رنگ‌های متن */
+  --text-main: #ffffff;         /* سفید خالص */
+  --text-muted: #a1a1aa;        /* خاکستری روشن */
+  --text-light: #71717a;        /* خاکستری ملایم */
+
+  /* حاشیه‌ها و خطوط دور کارت‌ها */
+  --border-color: #27272a;      
 }
 
 body {
-  background: var(--primaryColor);
+  background: var(--bg-main);
+  color: var(--text-main);
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .container {
   width: 100%;
   padding: 0 16px;
@@ -19,42 +41,25 @@ body {
 
 /* Small devices */
 @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+  .container { max-width: 540px; }
 }
-
 /* Tablet */
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+  .container { max-width: 720px; }
 }
-
 /* Laptop */
 @media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+  .container { max-width: 960px; }
 }
-
 /* Desktop */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
+  .container { max-width: 1140px; }
 }
-
 /* Large Desktop */
 @media (min-width: 1400px) {
-  .container {
-    max-width: 1320px;
-  }
+  .container { max-width: 1320px; }
 }
-
 /* Extra Large Monitor */
 @media (min-width: 1600px) {
-  .container {
-    max-width: 1440px;
-  }
+  .container { max-width: 1440px; }
 }
